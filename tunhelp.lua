@@ -208,8 +208,8 @@ function ShowDialog(param)
 		dialog_data = {
 			id = 712,
 			caption = 'TunHelp',
-			text = string.format('{ff8826}>>  Цены на тюнинг {FFFFFF}[Цена за продукт: %d]\nДиски (Wheels) - %d вирт\nСпойлеры (Spoiler) - %d вирт\nЗакись азота (Nitro) - X2 - %d вирт | X5 - %d вирт | X10 - %d вирт\nБампера (Bumper) - %d вирт\nПороги (Sideskirt) - %d вирт\nВыхлопные трубы (Exhaust) - %d вирт\nГидравлика (Hydraulics) - %d вирт\nВоздухозаборники (Roof) - %d вирт\nОстальное от %d до %d вирт\n\n{ff8826}>>  Настройки{FFFFFF}\nКнопка вызова диалога: {ff8826}%s\nКнопка вызова палитры #1: {ff8826}%s\nКнопка вызова палитры #2: {ff8826}%s\nКнопка вызова всех видов дисков: {ff8826}%s\n \n{ff8826}Для перемещения картинки - Правая Кнопка Мыши\n{ff8826}Для увеличения/уменьшения - Колёсико мыши\n \n         Автор скрипта Rubin Mods aka Serhiy_Rubin\n                  При поддержке Allon Dellon',
-			inifiles.Settings.Count, (250 * inifiles.Settings.Count), (50 * inifiles.Settings.Count), (50 * inifiles.Settings.Count), (150 * inifiles.Settings.Count), (200 * inifiles.Settings.Count), (100 * inifiles.Settings.Count), (50 * inifiles.Settings.Count), (25 * inifiles.Settings.Count), (250 * inifiles.Settings.Count), (60 * inifiles.Settings.Count), (50 * inifiles.Settings.Count), (100 * inifiles.Settings.Count), inifiles.Settings.KeyDialog:gsub('VK_', ''), inifiles.Settings.KeyColor1:gsub('VK_', ''), inifiles.Settings.KeyColor2:gsub('VK_', ''), inifiles.Settings.KeyWheel:gsub('VK_', '')),
+			text = string.format('{ff8826}>>  Цены на тюнинг {FFFFFF}[Цена за продукт: %d]\nДиски (Wheels) - %d вирт\nСпойлеры (Spoiler) - %d вирт\nЗакись азота (Nitro) - X2 - %d вирт | X5 - %d вирт | X10 - %d вирт\nБампера (Bumper) - %d вирт\nПороги (Sideskirt) - %d вирт\nВыхлопные трубы (Exhaust) - %d вирт\nГидравлика (Hydraulics) - %d вирт\nВоздухозаборники (Roof) - %d вирт\nОстальное от %d до %d вирт\n\n{ff8826}>>  Настройки{FFFFFF}\nКнопка вызова диалога: {ff8826}%s\nКнопка вызова палитры #1: {ff8826}%s\nКнопка вызова палитры #2: {ff8826}%s\nКнопка вызова всех видов дисков: {ff8826}%s\nКнопка вызова стоимости процентов: {ff8826}%s\n \n{ff8826}Для перемещения картинки - Правая Кнопка Мыши\n{ff8826}Для увеличения/уменьшения - Колёсико мыши\n \n         Автор скрипта Rubin Mods aka Serhiy_Rubin\n                  При поддержке Allon Dellon',
+			inifiles.Settings.Count, (250 * inifiles.Settings.Count), (50 * inifiles.Settings.Count), (50 * inifiles.Settings.Count), (150 * inifiles.Settings.Count), (200 * inifiles.Settings.Count), (100 * inifiles.Settings.Count), (50 * inifiles.Settings.Count), (25 * inifiles.Settings.Count), (250 * inifiles.Settings.Count), (60 * inifiles.Settings.Count), (50 * inifiles.Settings.Count), (100 * inifiles.Settings.Count), inifiles.Settings.KeyDialog:gsub('VK_', ''), inifiles.Settings.KeyColor1:gsub('VK_', ''), inifiles.Settings.KeyColor2:gsub('VK_', ''), inifiles.Settings.KeyWheel:gsub('VK_', ''), inifiles.Settings.KeyProc:gsub('VK_', '')),
 			func = {}
 		}
 
@@ -229,6 +229,9 @@ function ShowDialog(param)
 						ShowDialog({1})
 					elseif string:find('всех видов дисков') then
 						SetKeyActivation('KeyWheel')
+						ShowDialog({1})
+					elseif string:find('процентов') then
+						SetKeyActivation('KeyProc')
 						ShowDialog({1})
 					else
 						ShowDialog({1})
